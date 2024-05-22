@@ -1,20 +1,50 @@
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
-    public static String replace(String str){
-        if (str.length() <= 1) {
-            return str;
+    public static int partition(int[] arr, int si, int ei){
+        int pivot = arr[si];
+        int count = 0;
+        for (int i = si + 1; i <= ei; i++){
+            if (arr[i] < pivot){
+                count++;
+            }
         }
-        String output;
-        String ans = replace(str.substring(1));
-        if (str.charAt(0) == 'p' && str.charAt(1) == 'i'){
-            output = "3.14" + ans.substring(1);
+        int pivotIndex = si + count;
+        int temp = arr[pivotIndex];
+        arr[pivotIndex] = arr[si];
+        arr[si] = temp;
+
+        int i = si, j = ei;
+        while (i < pivotIndex && j > pivotIndex){
+            while (i < pivotIndex && arr[i] < pivot){
+                i++;
+            }
+            while (j > pivotIndex && arr[j] > pivot){
+                j--;
+            }
+            if (i < pivotIndex && j > pivotIndex){
+                temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
         }
-        else {
-            output = str.charAt(0) + ans;
-        }
-        return output;
+        return pivotIndex;
     }
+
+    public static void quickSort(int[] arr, int si, int ei){
+        if (si < ei){
+            int partitionIndex = partition(arr, si, ei);
+            quickSort(arr, si, partitionIndex - 1);
+            quickSort(arr, partitionIndex + 1, ei);
+        }
+    }
+
     public static void main(String[] args) {
-        String str = "xpix";
-        System.out.println(replace(str));
+        int[] arr = {4, 9, 7, 8, 6, 3, 2, 1};
+        quickSort(arr, 0, arr.length - 1);
+        for (int i = 0; i < arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
     }
 }
