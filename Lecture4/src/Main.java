@@ -1,50 +1,50 @@
-import java.util.Random;
 import java.util.Scanner;
 
+
 public class Main {
-    public static int partition(int[] arr, int si, int ei){
-        int pivot = arr[si];
-        int count = 0;
-        for (int i = si + 1; i <= ei; i++){
-            if (arr[i] < pivot){
-                count++;
-            }
+    public static double calculateTotalMarks(double[] marks){
+        double total = 0;
+        for (double mark : marks){
+            total += mark;
         }
-        int pivotIndex = si + count;
-        int temp = arr[pivotIndex];
-        arr[pivotIndex] = arr[si];
-        arr[si] = temp;
-
-        int i = si, j = ei;
-        while (i < pivotIndex && j > pivotIndex){
-            while (i < pivotIndex && arr[i] < pivot){
-                i++;
-            }
-            while (j > pivotIndex && arr[j] > pivot){
-                j--;
-            }
-            if (i < pivotIndex && j > pivotIndex){
-                temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-        return pivotIndex;
+        return total;
     }
-
-    public static void quickSort(int[] arr, int si, int ei){
-        if (si < ei){
-            int partitionIndex = partition(arr, si, ei);
-            quickSort(arr, si, partitionIndex - 1);
-            quickSort(arr, partitionIndex + 1, ei);
+    public static char calculateGrade(double averagePercentage){
+        if (averagePercentage >= 90) {
+            return 'A';
         }
+     else if (averagePercentage >= 75) {
+        return 'B';
+    } else if (averagePercentage >= 60) {
+        return 'C';
+    } else if (averagePercentage >= 50) {
+        return 'D';
+    } else {
+        return 'F';
     }
-
+    }
     public static void main(String[] args) {
-        int[] arr = {4, 9, 7, 8, 6, 3, 2, 1};
-        quickSort(arr, 0, arr.length - 1);
-        for (int i = 0; i < arr.length; i++){
-            System.out.print(arr[i] + " ");
+        Scanner s = new Scanner(System.in);
+        // input subject
+        System.out.println("Enter number of Subjects: ");
+        int numSubject = s.nextInt();
+        // input their marks
+        double marks[] = new double[numSubject];
+        for (int i=0;i<numSubject;i++){
+            System.out.println("Enter marks of subject"+i+": ");
+            marks[i] = s.nextInt();
         }
+        //calculate total marks and %
+        double totalMarks = calculateTotalMarks(marks);
+        double avgPercentage = totalMarks / numSubject;
+
+        // determine grade
+        char grade = calculateGrade(avgPercentage);
+        // DISPLAY
+        System.out.println("\nTotal Marks: " + totalMarks);
+        System.out.println("Average Percentage: " + String.format("%.2f", avgPercentage) + "%");
+        System.out.println("Grade: " + grade);
+
+        s.close();
     }
 }
