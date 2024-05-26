@@ -14,7 +14,7 @@ public class DengerSorting {
         }
     }
     public static void main(String[] args) {
-        int[] arr = {4, 3, 5, 1, 2, 6, 7};
+        int[] arr = {4, 3, 5, 1, 2, 6, 7, 8};
         int n = arr.length;
         sort(arr,n);
     }
