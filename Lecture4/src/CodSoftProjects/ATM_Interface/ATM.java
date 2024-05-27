@@ -2,8 +2,6 @@ package CodSoftProjects.ATM_Interface;
 
 import java.util.Scanner;
 
-import java.util.Scanner;
-
 public class ATM {
     private BankAccount account;
     private Scanner scanner;
