@@ -44,7 +44,6 @@ public class Main {
         System.out.println("\nTotal Marks: " + totalMarks);
         System.out.println("Average Percentage: " + String.format("%.2f", avgPercentage) + "%");
         System.out.println("Grade: " + grade);
-
         s.close();
     }
 }
