@@ -10,11 +10,11 @@ public class Main {
         String[] smallAns = subSequence(str.substring(1));
         String ans[] = new String[2 * smallAns.length];
 
-        for(int i=0;i< smallAns.length;i++){
+        for (int i=0;i< smallAns.length;i++){
             ans[i] = smallAns[i];
         }
         for (int i=0;i< smallAns.length;i++){
-            ans[i+ smallAns.length] = str.charAt(0)+smallAns[i];
+            ans[i + smallAns.length] = str.charAt(0) + smallAns[i];
         }
         return ans;
     }
