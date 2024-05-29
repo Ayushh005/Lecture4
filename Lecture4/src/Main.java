@@ -2,48 +2,27 @@ import java.util.Scanner;
 
 
 public class Main {
-    public static double calculateTotalMarks(double[] marks){
-        double total = 0;
-        for (double mark : marks){
-            total += mark;
+    public static String[] subSequence(String str){
+        if (str.length() == 0){
+            String[] ans = {""};
+            return ans;
         }
-        return total;
-    }
-    public static char calculateGrade(double averagePercentage){
-        if (averagePercentage >= 90) {
-            return 'A';
+        String[] smallAns = subSequence(str.substring(1));
+        String ans[] = new String[2 * smallAns.length];
+
+        for(int i=0;i< smallAns.length;i++){
+            ans[i] = smallAns[i];
         }
-     else if (averagePercentage >= 75) {
-        return 'B';
-    } else if (averagePercentage >= 60) {
-        return 'C';
-    } else if (averagePercentage >= 50) {
-        return 'D';
-    } else {
-        return 'F';
-    }
+        for (int i=0;i< smallAns.length;i++){
+            ans[i+ smallAns.length] = str.charAt(0)+smallAns[i];
+        }
+        return ans;
     }
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        // input subject
-        System.out.println("Enter number of Subjects: ");
-        int numSubject = s.nextInt();
-        // input their marks
-        double marks[] = new double[numSubject];
-        for (int i=0;i<numSubject;i++){
-            System.out.println("Enter marks of subject"+i+": ");
-            marks[i] = s.nextInt();
+        String str = "xyz";
+        String[] ans = subSequence(str);
+        for (int i = 0; i < ans.length; i++) {
+            System.out.println(ans[i]);
         }
-        //calculate total marks and %
-        double totalMarks = calculateTotalMarks(marks);
-        double avgPercentage = totalMarks / numSubject;
-
-        // determine grade
-        char grade = calculateGrade(avgPercentage);
-        // DISPLAY
-        System.out.println("\nTotal Marks: " + totalMarks);
-        System.out.println("Average Percentage: " + String.format("%.2f", avgPercentage) + "%");
-        System.out.println("Grade: " + grade);
-        s.close();
     }
 }
