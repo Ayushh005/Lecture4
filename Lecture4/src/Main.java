@@ -1,24 +1,23 @@
 class Main{
-    public static int check(int[] arr,int x){
-        return check(arr,0, arr.length-1, x);
-    }
-    public static int check(int[] arr,int s,int e,int x){
-        if (s > e){
-            return -1;
+
+    public static void profit(int[] arr){
+        int buy = Integer.MAX_VALUE;
+        int profit = 0;
+        int maxProfit = 0;
+        for (int i=0;i< arr.length;i++){
+            if (buy > arr[i]){
+                buy = arr[i];
+            }
+            profit = arr[i] - buy;
+        if (profit > maxProfit) {
+            maxProfit = profit;
         }
-        int mid = (s+e)/2;
-        if (arr[mid] == x){
-            return mid;
-        } else if (arr[mid] < x) {
-            return check(arr,mid+1, arr.length-1,x );
         }
-        else {
-            return check(arr,s,mid-1,x);
-        }
+        System.out.println(maxProfit);
     }
     public static void main(String[] args) {
-        int[] arr = {2,3,4,5,6,8};
-        int x = 3;
-        System.out.println(check(arr,x));
+        int[] arr = {44,30,24,32,35,30,40,38,15};
+
+        profit(arr);
     }
 }
