@@ -1,20 +1,24 @@
 class Main{
-    public static boolean check(String str){
-        if(str.length() == 0){
-            return true;
+    public static int check(int[] arr,int x){
+        return check(arr,0, arr.length-1, x);
+    }
+    public static int check(int[] arr,int s,int e,int x){
+        if (s > e){
+            return -1;
         }
-        if (str.charAt(0) == 'a'){
-            if (str.substring(1).length() > 1 && str.substring(1,3).equals("bb")){
-                return check(str.substring(3));
-            }
-            else {
-               return check( str.substring(1));
-            }
+        int mid = (s+e)/2;
+        if (arr[mid] == x){
+            return mid;
+        } else if (arr[mid] < x) {
+            return check(arr,mid+1, arr.length-1,x );
         }
-        return false;
+        else {
+            return check(arr,s,mid-1,x);
+        }
     }
     public static void main(String[] args) {
-        String ste = "abb";
-        System.out.println(check(ste));
+        int[] arr = {2,3,4,5,6,8};
+        int x = 3;
+        System.out.println(check(arr,x));
     }
 }
