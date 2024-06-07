@@ -12,7 +12,7 @@ class Main{
         if (profit > maxProfit) {
             maxProfit = profit;
         }
-        }
+      }
         System.out.println(maxProfit);
     }
     public static void main(String[] args) {
