@@ -42,7 +42,7 @@ public class RatInAMaze {
 
 
     public static void main(String[] args) {
-        int maze[][] = {{1,1,0},{1,1,0},{1,1,1}};
+        int maze[][] = {{1,1,0},{1,1,0},{0,1,1}};
         boolean pathPossible = ratInAMaze(maze);
         System.out.println(pathPossible);
     }
