@@ -1,43 +1,37 @@
-import java.util.Arrays;
-
 class Main{
-
-    public static int[][] subSetHelper(int[] arr, int si){
-        if (si == arr.length){
-            int[][] output = new int[1][0];
-            return output;
-        }
-        int smallAns[][] = subSetHelper(arr, si+1);
-        int ans[][] = new int[2 * smallAns.length][];
-
-        int k = 0;
-        for (int i = 0; i < smallAns.length; i++){
-            ans[k] = new int[smallAns[i].length];
-            for (int j = 0; j < smallAns[i].length; j++){
-                ans[k][j] = smallAns[i][j];
-            }
-            k++;
-        }
-        for (int i = 0; i < smallAns.length; i++){
-            ans[k] = new int[smallAns[i].length + 1];
-            ans[k][0] = arr[si];
-            for (int j = 1; j <= smallAns[i].length; j++){
-                ans[k][j] = smallAns[i][j - 1];
-            }
-            k++;
-        }
-        return ans;
+    public static boolean ratInAMaze(int maze[][]){
+        int n = maze.length;
+        int path[][] = new int[n][n];
+        return solveMaze(maze,path,0,0);
     }
-
-    public static void printSubsets(int[][] subsets) {
-        for (int[] subset : subsets) {
-            System.out.println(Arrays.toString(subset));
+    public static boolean solveMaze(int maze[][],int path[][],int i,int j){
+        int n = maze.length;
+        if (i<0 || i>=n || j<0 || j>=n || maze[i][j] == 0 || path[i][j] == 1){
+            return false;
         }
+        path[i][j] = 1;
+        if (i == n-1 && j == n-1){
+            path[i][j] = 1;
+            return true;
+        }
+        if (solveMaze(maze, path, i-1, j)){
+            return true;
+        }
+        if (solveMaze(maze, path, i, j+1)){
+            return true;
+        }
+        if (solveMaze(maze, path, i+1, j)){
+            return true;
+        }
+        if (solveMaze(maze, path, i, j-1)){
+            return true;
+        }
+        return false;
     }
 
     public static void main(String[] args) {
-        int[] arr = {12, 20, 15};
-        int[][] subsets = subSetHelper(arr, 0);
-        printSubsets(subsets);
+        int maze[][] = {{1,1,0},{1,1,0},{0,1,1}};
+        boolean pathPossible = ratInAMaze(maze);
+        System.out.println(pathPossible);
     }
 }
