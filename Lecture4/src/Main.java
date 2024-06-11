@@ -1,43 +1,37 @@
 class Main{
-    public static boolean ratInAMaze(int maze[][]){
+    public static void ratInAMaze(int maze[][]){
         int n = maze.length;
         int path[][] = new int[n][n];
-        return solveMaze(maze,path,0,0);
+        solveMaze(maze,path,0,0);
     }
-    public static boolean solveMaze(int maze[][],int path[][],int i,int j){
+    public static void solveMaze(int maze[][],int path[][],int i,int j){
         int n = maze.length;
         if (i<0 || i>=n || j<0 || j>=n || maze[i][j] == 0 || path[i][j] == 1){
-            return false;
+            return;
         }
         path[i][j] = 1;
         if (i == n-1 && j == n-1){
-            for (int r=0;r<path.length;r++){
-                for (int c=0;c< path.length;c++){
+            for (int r=0;r<n;r++){
+                for (int c=0;c<n;c++){
                     System.out.print(path[r][c]+" ");
                 }
                 System.out.println();
             }
-            path[i][j] = 1;
-            return true;
+            System.out.println();
+            path[i][j] = 0;
+            return;
         }
-        if (solveMaze(maze, path, i-1, j)){
-            return true;
-        }
-        if (solveMaze(maze, path, i, j+1)){
-            return true;
-        }
-        if (solveMaze(maze, path, i+1, j)){
-            return true;
-        }
-        if (solveMaze(maze, path, i, j-1)){
-            return true;
-        }
-        return false;
+
+        solveMaze(maze, path, i-1, j);
+        solveMaze(maze, path, i, j+1);
+        solveMaze(maze, path, i+1, j);
+        solveMaze(maze, path, i, j-1);
+        //  backtrack
+        path[i][j] = 0;
     }
 
     public static void main(String[] args) {
-        int maze[][] = {{1,1,0},{1,1,0},{0,1,1}};
-        boolean pathPossible = ratInAMaze(maze);
-        System.out.println(pathPossible);
+        int maze[][] = {{1, 1, 0}, {1, 1, 0}, {1, 1, 1}};
+        ratInAMaze(maze);
     }
 }
