@@ -11,6 +11,12 @@ class Main{
         }
         path[i][j] = 1;
         if (i == n-1 && j == n-1){
+            for (int r=0;r<path.length;r++){
+                for (int c=0;c< path.length;c++){
+                    System.out.print(path[r][c]+" ");
+                }
+                System.out.println();
+            }
             path[i][j] = 1;
             return true;
         }
