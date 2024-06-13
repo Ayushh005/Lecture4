@@ -27,7 +27,7 @@ class Main{
         solveMaze(maze, path, i+1, j);
         solveMaze(maze, path, i, j-1);
         //  backtrack
-        path[i][j] = 0;
+       // path[i][j] = 0;
     }
 
     public static void main(String[] args) {
