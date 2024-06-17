@@ -1,17 +1,14 @@
-import java.util.Scanner;
-
 class Main{
+    public static void power(int n,int x){
+        int ans = n;
+        for (int i=1;i<=x;i++){
+            ans*= n;
+            System.out.println(ans);
+        }
+    }
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.print("Enter your Principal Amount : ");
-        int p = s.nextInt();
-        System.out.print("Enter rate : ");
-        int r = s.nextInt();
-        System.out.print("Enter Time : ");
-        int t = s.nextInt();
-
-        int si = p*r*t/100;
-        int totalAmount = p + si;
-        System.out.println("Your total amount will be "+totalAmount);
+        int n = 4;
+        int x = 3;
+        power(n,x);
     }
 }
