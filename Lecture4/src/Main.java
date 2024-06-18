@@ -1,16 +1,41 @@
 class Main{
 
-    public static int power(int a,int n){
-        if (n==1){
-            return n;
+    public static int[] sort(int[] arr){
+        int n = arr.length;
+        int i = 0;
+        int zero = 0;
+        int two = n-1;
+        while (i<=two){
+            if (arr[i] == 0){
+                int temp = arr[zero];
+                arr[zero] = arr[i];
+                arr[i] = temp;
+                i++;
+                zero++;
+            } else if (arr[i] == 2) {
+                int temp = arr[i];
+                arr[i] = arr[two];
+                arr[two] = temp;
+                two--;
+            }
+            else {
+                i++;
+            }
         }
-        int ans = power(a,n-1);
-
-        return ans * a;
+        return arr;
     }
     public static void main(String[] args) {
-        int a = 4;
-        int n = 5;
-        System.out.println(power(a,n));
+        int[] arr = {0,1,2,0,2,0,1};
+        System.out.println("Given Array :");
+        for (int i=0;i< arr.length;i++){
+            System.out.print(arr[i]+ " ");
+        }
+        System.out.println();
+        sort(arr);
+
+        System.out.println("Sorted Array : ");
+        for (int i=0;i< arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
     }
 }
