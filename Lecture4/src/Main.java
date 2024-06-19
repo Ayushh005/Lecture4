@@ -1,41 +1,21 @@
 class Main{
 
-    public static int[] sort(int[] arr){
-        int n = arr.length;
-        int i = 0;
-        int zero = 0;
-        int two = n-1;
-        while (i<=two){
-            if (arr[i] == 0){
-                int temp = arr[zero];
-                arr[zero] = arr[i];
-                arr[i] = temp;
-                i++;
-                zero++;
-            } else if (arr[i] == 2) {
-                int temp = arr[i];
-                arr[i] = arr[two];
-                arr[two] = temp;
-                two--;
-            }
-            else {
-                i++;
+    public static String removeDuplicate(String str){
+        if (str.length() == 0){
+            return str;
+        }
+        StringBuilder ans = new StringBuilder();
+        ans.append(str.charAt(0));
+
+        for (int i=1;i<str.length();i++){
+            if (str.charAt(i) != str.charAt(i-1)){
+                ans.append(str.charAt(i));
             }
         }
-        return arr;
+        return ans.toString();
     }
     public static void main(String[] args) {
-        int[] arr = {0,1,2,0,2,0,1};
-        System.out.println("Given Array :");
-        for (int i=0;i< arr.length;i++){
-            System.out.print(arr[i]+ " ");
-        }
-        System.out.println();
-        sort(arr);
-
-        System.out.println("Sorted Array : ");
-        for (int i=0;i< arr.length;i++){
-            System.out.print(arr[i]+" ");
-        }
+        String str = "aabbbcddeeefggh";
+        System.out.println(removeDuplicate(str));
     }
 }
