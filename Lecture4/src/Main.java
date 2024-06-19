@@ -5,11 +5,18 @@ class Main{
             return str;
         }
         StringBuilder ans = new StringBuilder();
-        ans.append(str.charAt(0));
 
-        for (int i=1;i<str.length();i++){
-            if (str.charAt(i) != str.charAt(i-1)){
-                ans.append(str.charAt(i));
+        for (int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            int count = 1;
+
+            while (i<str.length()-1 && str.charAt(i) == str.charAt(i+1)){
+                count++;
+                i++;
+            }
+            ans.append(ch);
+            if (count>1){
+                ans.append(count);
             }
         }
         return ans.toString();
