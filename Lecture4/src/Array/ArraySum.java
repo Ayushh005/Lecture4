@@ -17,7 +17,7 @@ public class ArraySum {
     public static void printSum(int input[]) {
         int sum = 0;
         for (int i=0;i< input.length;i++) {
-            sum=sum+input[i];
+            sum += input[i];
         }
         System.out.print(sum);
     }
