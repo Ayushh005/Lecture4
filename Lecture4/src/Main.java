@@ -1,25 +1,19 @@
 class Main{
 
-    public static String countAndSay(int n){
-        if (n == 1){
-            return "1";
-        }
-        String say = countAndSay(n-1);
-
-        int count = 0;
-        StringBuilder ans = new StringBuilder();
-
-        for (int i=0;i<say.length();i++){
-            count++;
-            if (i == say.length()-1 || say.charAt(i)!=say.charAt(i+1)){
-                ans.append(count).append(say.charAt(i));
-                count = 0;
+    public static void twosum(int[] arr,int target){
+        int n = arr.length;
+        for (int i=0;i<n;i++){
+            for (int j=0;j<n;j++){
+                if (arr[i] + arr[j] == target){
+                    System.out.println("("+i+","+j+")");
+                }
             }
         }
-        return ans.toString();
     }
     public static void main(String[] args) {
-        int n = 5;
-        System.out.println(countAndSay(n));
+        int[] arr = {1,3,2,5,4,3,2,7};
+        int target = 9;
+
+        twosum(arr,target);
     }
 }
