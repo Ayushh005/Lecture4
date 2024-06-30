@@ -1,23 +1,23 @@
 class Main{
 
-    public static void SortArray(int[] arr){
-        int zero = 0;
+    public static void Dublicate(int[] arr){
         int n = arr.length;
-        for (int i=0;i< n;i++){
-            if (arr[i] == 0){
-                int temp = arr[zero];
-                arr[zero] = arr[i];
-                arr[i] = temp;
-                zero++;
+        for (int i=0;i<n-1;i++){
+            for (int j=i+1;j<n;j++){
+                if (arr[i] == arr[j]){
+                    System.out.println(arr[i]);
+                }
             }
         }
-        for (int i=0;i< arr.length;i++) {
-            System.out.print(arr[i]+" ");
-        }
     }
-
     public static void main(String[] args) {
-        int input[] = {0,0,1,0,1,1,0,1};
-        SortArray(input);
+        int[] arr = {1, 2, 3, 5, 4, 4, 5};
+        System.out.print("Given Array : ");
+        for (int i : arr){
+            System.out.print(i+" ");
+        }
+        System.out.println();
+        System.out.print("Dublicate element: ");
+        Dublicate(arr);
     }
 }
