@@ -6,7 +6,7 @@ public class RemoveCharacter {
         String output = "";
 
         for (int i=0;i<str.length();i++){
-            if (str.charAt(i) != 'a'){
+            if (str.charAt(i) != ch){
                 output += str.charAt(i);
             }
         }
