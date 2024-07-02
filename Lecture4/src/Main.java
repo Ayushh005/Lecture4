@@ -1,25 +1,19 @@
 class Main {
 
 
-    public static void profit(int[] arr) {
-        int profit = 0;
-        int maxProfit = 0;
-        int buy = Integer.MAX_VALUE;
-
-        for (int i=0;i< arr.length;i++){
-            if (buy > arr[i]){
-                buy = arr[i];
+    public static boolean reverse(String str) {
+        int s = 0;
+        int e = str.length()-1;
+        while (s<e){
+            if (str.charAt(s) != str.charAt(e)){
+                return false;
             }
-            profit = arr[i] - buy;
-
-            if (profit > maxProfit){
-                maxProfit = profit;
-            }
+            s++;e--;
         }
-        System.out.println("Max Profit : "+maxProfit);
+        return true;
     }
     public static void main(String[] args) {
-        int[] arr = {44,30,24,32,35,30,40,38,15};
-        profit(arr);
+        String str = "racecare";
+        System.out.println(reverse(str));
     }
 }
