@@ -1,41 +1,25 @@
 class Main {
 
 
-    public static void sort(int[] arr) {
-        int zero = 0;
-        int two = arr.length-1;
+    public static void profit(int[] arr) {
+        int profit = 0;
+        int maxProfit = 0;
+        int buy = Integer.MAX_VALUE;
 
-        for (int i=0;i< arr.length-1;i++){
-            if (arr[i] == 0){
-                int temp = arr[zero];
-                arr[zero] = arr[i];
-                arr[i] = temp;
-                zero++;
+        for (int i=0;i< arr.length;i++){
+            if (buy > arr[i]){
+                buy = arr[i];
             }
-            else if (arr[i] == 2){
-                int temp = arr[two];
-                arr[two] = arr[i];
-                arr[i] = temp;
-                two--;
-            }
-            else {
-                i++;
+            profit = arr[i] - buy;
+
+            if (profit > maxProfit){
+                maxProfit = profit;
             }
         }
+        System.out.println("Max Profit : "+maxProfit);
     }
     public static void main(String[] args) {
-        int[] arr = {0,1,2,0,2,0,1};
-        System.out.println("Given Array :");
-        for (int i=0;i< arr.length;i++){
-            System.out.print(arr[i]+ " ");
-        }
-        System.out.println();
-        sort(arr);
-
-        System.out.println("Sorted Array : ");
-        for (int i=0;i< arr.length;i++){
-            System.out.print(arr[i]+" ");
-        }
-
+        int[] arr = {44,30,24,32,35,30,40,38,15};
+        profit(arr);
     }
 }
