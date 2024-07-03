@@ -1,19 +1,25 @@
 class Main {
 
 
-    public static boolean reverse(String str) {
-        int s = 0;
-        int e = str.length()-1;
-        while (s<e){
-            if (str.charAt(s) != str.charAt(e)){
-                return false;
+    public static String toUpperCase(String str) {
+        StringBuilder sb = new StringBuilder("");
+        char ch = Character.toUpperCase(str.charAt(0));
+        sb.append(ch);
+
+        for (int i=1;i<str.length();i++){
+            if (str.charAt(i) == ' ' && i < str.length()-1){
+                i++;
+                sb.append(Character.toUpperCase(str.charAt(i)));
             }
-            s++;e--;
+            else {
+                sb.append(str.charAt(i));
+            }
         }
-        return true;
+        return sb.toString();
     }
     public static void main(String[] args) {
-        String str = "racecare";
-        System.out.println(reverse(str));
+        String str = "hello i am ayush.";
+
+        System.out.println(toUpperCase(str));
     }
 }
