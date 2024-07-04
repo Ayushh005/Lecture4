@@ -1,25 +1,25 @@
 class Main {
-
-
-    public static String toUpperCase(String str) {
-        StringBuilder sb = new StringBuilder("");
-        char ch = Character.toUpperCase(str.charAt(0));
-        sb.append(ch);
-
-        for (int i=1;i<str.length();i++){
-            if (str.charAt(i) == ' ' && i < str.length()-1){
-                i++;
-                sb.append(Character.toUpperCase(str.charAt(i)));
+    public static void removeDuplicates(int[] arr) {
+        if (arr.length <= 2) {
+            for (int i = 0; i < arr.length; i++) {
+                System.out.print(arr[i] + " ");
             }
-            else {
-                sb.append(str.charAt(i));
+            return;
+        }
+
+        int j = 2;
+        for (int i = 2; i < arr.length; i++) {
+            if (arr[i] != arr[j - 2]) {
+                arr[j++] = arr[i];
             }
         }
-        return sb.toString();
+        for (int i = 0; i < j; i++) {
+            System.out.print(arr[i] + " ");
+        }
     }
-    public static void main(String[] args) {
-        String str = "hello i am ayush.";
 
-        System.out.println(toUpperCase(str));
+    public static void main(String[] args) {
+        int[] arr = {1, 1, 1, 2, 2, 3};
+        removeDuplicates(arr);
     }
 }
