@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class PrintMN_NM {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        System.out.print("Enter Size of Matrix = ");
+        System.out.print("Enter Size of Matrix (m x n) = ");
         int m = s.nextInt();
         int n = s.nextInt();
 
