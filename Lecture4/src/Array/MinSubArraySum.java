@@ -6,6 +6,7 @@ public class MinSubArraySum {
         int high = 0;
         int min = Integer.MAX_VALUE;
         int sum = 0;
+
         for (high = 0;high<nums.length;high++){
             sum += nums[high];
             while (sum >= target){
