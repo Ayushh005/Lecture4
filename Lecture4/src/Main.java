@@ -1,23 +1,25 @@
 class Main {
-    public static void find(int[] arr) {
-        int n = arr.length;
+    public static String find(int n) {
+        if (n == 1){
+            return "1";
+        }
+        String say = find(n-1);
+
+        StringBuilder ans = new StringBuilder();
         int count = 0;
-        int max = 0;
-        for (int i=0;i<n;i++){
-            if (arr[i] == 1){
-                count++;
-            }
-            else {
+        for (int i=0;i<say.length();i++){
+            count++;
+            if (i == say.length()-1 || say.charAt(i) != say.charAt(i+1)){
+                ans.append(count).append(say.charAt(i));
                 count = 0;
             }
-            max = Math.max(count,max);
         }
-        System.out.println(max);
+        return ans.toString();
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,1,0,1,0,1,1,1,1,0,1,0,1,1};
-        find(arr);
+        int n = 5;
+        System.out.println(find(n));
     }
 }
 
