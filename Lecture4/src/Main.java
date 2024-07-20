@@ -1,25 +1,20 @@
 class Main {
-    public static String find(int n) {
-        if (n == 1){
-            return "1";
-        }
-        String say = find(n-1);
-
-        StringBuilder ans = new StringBuilder();
-        int count = 0;
-        for (int i=0;i<say.length();i++){
-            count++;
-            if (i == say.length()-1 || say.charAt(i) != say.charAt(i+1)){
-                ans.append(count).append(say.charAt(i));
-                count = 0;
+    public static boolean isPalindrome(String str) {
+        int n = str.length();
+        int s = 0;
+        int e = n-1;
+        while (s < e){
+            if (str.charAt(s) != str.charAt(e)){
+                return false;
             }
+            s++;e--;
         }
-        return ans.toString();
+        return true;
     }
 
     public static void main(String[] args) {
-        int n = 5;
-        System.out.println(find(n));
+        String str = "racecar";
+        System.out.println(isPalindrome(str));
     }
 }
 
