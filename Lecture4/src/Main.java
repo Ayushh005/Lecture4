@@ -1,36 +1,22 @@
 class Main {
-    public static boolean isPalindrome(String str) {
-        int n = str.length();
+    public static String reverse(String str) {
+        char[] ch = str.toCharArray();
         int s = 0;
-        int e = n-1;
-        while (s < e){
-            if (str.charAt(s) != str.charAt(e)){
-                return false;
-            }
+        int e = str.length()-1;
+        while (s <= e){
+            char temp = ch[s];
+            ch[s] = ch[e];
+            ch[e] = temp;
             s++;e--;
         }
-        return true;
+        return new String(ch);
     }
 
     public static void main(String[] args) {
-        String str = "racecar";
-        System.out.println(isPalindrome(str));
+        String str = "racecare";
+        System.out.println(reverse(str));
     }
 }
 
 
 
-
-
-//   for(int i=0;i<n;i++){               // for reversing
-//        int left = 0;
-//        int right = matrix.length-1;
-//
-//        while(left < right){
-//        int temp = matrix[i][left];
-//        matrix[i][left] = matrix[i][right];
-//        matrix[i][right]= temp;
-//        left++;
-//        right--;
-//        }
-//        }
