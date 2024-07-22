@@ -1,32 +1,20 @@
 class Main {
-    public static boolean isPermutation(String a, String b) {
-        if (a.length() != b.length()){
-            return false;
-        }
-        int freq[] = new int[256];
-
-        for (int i=0;i<256;i++){
-            freq[i] = 0;
-        }
-        for (int i=0;i<a.length();i++){
-            freq[i]++;
-        }
-        for (int i=0;i<b.length();i++){
-            freq[i]--;
-        }
-        for (int i=0;i<256;i++){
-            if (freq[i] != 0){
-                return false;
-            }
-        }
-        return true;
-    }
 
     public static void main(String[] args) {
-        String a = "listen";
-        String b = "silent";
+        int arr[] = {3,4,1,5,2,7,6};
 
-        System.out.println(isPermutation(a,b));
+        for (int i=0;i< arr.length-1;i++){
+            for (int j=i+1;j< arr.length;j++){
+                if (arr[i] > arr[j]){
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        for (int i=0;i< arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
     }
 }
 
