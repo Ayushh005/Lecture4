@@ -23,7 +23,7 @@ public class Basics {
         list1.remove(1);          //  all elements shifted left ward
         list1.set(1,21);                //  used to update number
 
-        for (int elem : list1){         //  for each loop
+        for (int elem : list1){         //  for each loop use for traversing not perform any operation
             System.out.print(elem +" ");
         }
     }
