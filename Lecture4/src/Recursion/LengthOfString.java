@@ -5,7 +5,7 @@ public class LengthOfString {
         if (i==str.length()){
             return;
         }
-        int count = 0;                                    //
+        int count = 0;
         for (i=0;i<str.length();i++){
             count++;
         }
