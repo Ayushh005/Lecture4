@@ -20,7 +20,7 @@ public class Insert_Print_LL {
             }
         }
     }
-    public static void print(Node<Integer> head){         //  for print
+    public static void print(Node<Integer> head){                 //  for print
         while (head != null){
             System.out.print(head.data + " ");
             head = head.next;
