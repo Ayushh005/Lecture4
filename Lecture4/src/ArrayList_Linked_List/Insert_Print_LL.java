@@ -1,25 +1,28 @@
 package ArrayList_Linked_List;
 
-import javax.management.modelmbean.ModelMBean;
 import java.util.Scanner;
 
 public class Insert_Print_LL {
 
-    public static Node<Integer> input(){
+    public static Node<Integer> input() {
         Node<Integer> head = null, tail = null;
         Scanner s = new Scanner(System.in);
         int data = s.nextInt();
 
-        while (data != -1){
+        while (data != -1) {
             Node<Integer> newNode = new Node<>(data);
             if (head == null) {
                 head = newNode;
                 tail = newNode;
-            }else{
-
+            } else {
+                tail.next = newNode;
+                tail = newNode;
             }
+            data = s.nextInt(); // Read the next input
         }
+        return head;
     }
+
     public static void print(Node<Integer> head){                 //  for print
         while (head != null){
             System.out.print(head.data + " ");
