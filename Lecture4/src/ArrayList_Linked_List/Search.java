@@ -8,7 +8,7 @@ public class Search {
             return -1;
         }
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).equals(x)) {
+            if (list.get(i).equals(x)) {                //  also write (list.get(i) == x)
                 return i;
             }
         }
