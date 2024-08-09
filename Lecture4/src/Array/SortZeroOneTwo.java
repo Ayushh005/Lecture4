@@ -17,7 +17,7 @@ public class SortZeroOneTwo {
                 int temp = arr[i];
                 arr[i] = arr[two];
                 arr[two] = temp;
-                two--;
+                two--;                             //  don't iterate i++ here because you cheak that swappwd element again
             } else {
                 i++;
             }
