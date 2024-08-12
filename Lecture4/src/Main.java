@@ -1,33 +1,25 @@
 class Main {
-    public static void sort(int[] arr){
-        int i = 0;
-        int zero = 0;
-        int two = arr.length-1;
-        while (i <= two){
-            if (arr[i] == 0){
-                int temp = arr[i];
-                arr[i] = arr[zero];
-                arr[zero] = temp;
-                i++;
-                zero++;
-            } else if (arr[i] == 2) {
-                int temp = arr[i];
-                arr[i] = arr[two];
-                arr[two] = temp;
-                two--;                   //  dont iterate i++ here because you cheak that swappwd element again
-            }
-            else {
+    public static String compress(String str){
+        StringBuilder ans = new StringBuilder();
+
+        for (int i=0;i<str.length();i++){
+            char ch = str.charAt(i);
+            int count = 1;
+            while (i < str.length()-1 && str.charAt(i) == str.charAt(i+1)){
+                count++;
                 i++;
             }
+            ans.append(ch);
+            if (count > 1){
+                ans.append(count);
+            }
         }
-        for (i =0;i< arr.length;i++){
-            System.out.print(arr[i]+" ");
-        }
+        return ans.toString();
     }
 
     public static void main(String[] args) {
-        int[] arr = {1,2,0,2,0,1};
-        sort(arr);
+        String str = "jhhhaaahhg";
+        System.out.println(compress(str));
     }
 }
 
