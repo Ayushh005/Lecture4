@@ -1,35 +1,44 @@
-import java.util.Scanner;
-
 class Main {
-    public static int diagonalSum(int[][] arr){
+    public static void rotate(int[][] arr){
         int n = arr.length;
-        int sum = 0;
 
         for (int i=0;i< arr.length;i++){
-            for (int j=0;j< arr.length;j++){
-                if (i == j){
-                    sum += arr[i][j];
-                }
+            for (int j=i+1;j<n;j++){
+                int temp = arr[i][j];
+                arr[i][j] = arr[j][i];
+                arr[j][i] = temp;
             }
         }
-        return sum;
+        for (int i=0;i< arr.length;i++){
+            int left = 0;
+            int right = arr.length-1;
+
+            while (left < right){
+                int temp = arr[i][left];
+                arr[i][left] = arr[i][right];
+                arr[i][right] = temp;
+                left++;
+                right--;
+            }
+        }
     }
 
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        System.out.println("Enter size of Matrix :");
-        System.out.println();
-        int n = s.nextInt();
-        int[][] arr = new int[n][n];
+        int[][] arr = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
 
-        System.out.println("Enter elements of Matrix :");
-        for (int i=0;i<n;i++){
-            for (int j=0;j<n;j++){
-                arr[i][j] = s.nextInt();
+        rotate(arr);
+
+        // Print the rotated matrix
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.print(arr[i][j] + " ");
             }
+            System.out.println();
         }
-        int ans = diagonalSum(arr);
-        System.out.println("Sum of Diagonals : " + ans);
     }
 }
 
