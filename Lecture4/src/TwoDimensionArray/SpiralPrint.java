@@ -10,9 +10,9 @@ public class SpiralPrint {
         }
         int cols = arr[0].length;
         int i,rs = 0,cs = 0;
-        int numElements = rows * cols,count = 0;
+        int numElements = rows * cols, count = 0;
         while (count < numElements){
-            for (i = cs;count < numElements && i < cols;++i){
+            for (i = cs;count < numElements && i < cols;i++){
                 System.out.print(arr[rs][i]+" ");
                 count++;
             }
@@ -29,5 +29,6 @@ public class SpiralPrint {
                 arr[i][j] = s.nextInt();
             }
         }
+        spiral(arr);
     }
 }
