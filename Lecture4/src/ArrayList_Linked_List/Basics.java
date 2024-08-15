@@ -28,3 +28,11 @@ public class Basics {
         }
     }
 }
+
+//
+//    list1.add(25);
+//    list1.remove(25);
+//    list1.get(i);  print
+//    list1.size();
+//    list1.set();   update
+
