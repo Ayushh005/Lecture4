@@ -1,14 +1,14 @@
 class Main {
-    public static int sum(int n){
-        if (n == 0){
-            return 0;
+    public static int fact(int n){
+        if (n == 1){
+            return 1;
         }
-        int temp = sum(n-1);
-        return temp + n;
+        int temp = fact(n-1);
+        return temp * n;
     }
     public static void main(String[] args) {
-        int n = 10;
-        System.out.println(sum(n));;
+        int n = 5;
+        System.out.println(fact(n));;
     }
 }
 
