@@ -1,14 +1,14 @@
 class Main {
-    public static void inc(int n){
+    public static int sum(int n){
         if (n == 0){
-            return;
+            return 0;
         }
-        inc(n-1);
-        System.out.println(n);
+        int temp = sum(n-1);
+        return temp + n;
     }
     public static void main(String[] args) {
         int n = 10;
-        inc(n);
+        System.out.println(sum(n));;
     }
 }
 
