@@ -1,14 +1,24 @@
 class Main {
-    public static int fact(int n){
-        if (n == 1){
-            return 1;
+    public static double power(double a, int n){
+        if (n == 0){
+            return  1;
         }
-        int temp = fact(n-1);
-        return temp * n;
+        double ans = power(a,n/2);
+        if (n < 0){
+            n = -n;
+            a = 1/a;
+        }
+        if (n%2 == 0){
+            return ans * ans;
+        }
+        else {
+            return ans * ans * a;
+        }
     }
     public static void main(String[] args) {
-        int n = 5;
-        System.out.println(fact(n));;
+        int a = 2;
+        int n = -2;
+        System.out.println(power(a,n));
     }
 }
 
