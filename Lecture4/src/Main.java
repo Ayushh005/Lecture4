@@ -17,7 +17,7 @@ class Main {
     }
     public static void main(String[] args) {
         int a = 2;
-        int n = -2;
+        int n = -4;
         System.out.println(power(a,n));
     }
 }
