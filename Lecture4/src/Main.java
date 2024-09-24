@@ -1,25 +1,38 @@
 class Main {
-    public static void rotate(int[] arr){
+    public static void sort(int[] arr){
         int n = arr.length;
-        int s = 0;
-        int e = n-1;
-        while (s < e){
-            int temp = arr[s];
-            arr[s] = arr[e];
-            arr[e] = temp;
-            s++;
-            e--;
+        int zero = 0;
+        int two = n-1;
+        int i = 0;
+        while (i <= two){
+            if (arr[i] == 0) {
+                int temp = arr[zero];
+                arr[zero] = arr[i];
+                arr[i] = temp;
+                i++;
+                zero++;
+            }
+            else if(arr[i] == 2){
+                int temp = arr[i];
+                arr[i] = arr[two];
+                arr[two] = temp;
+                two--;
+            }
+            else {
+                i++;
+            }
         }
     }
     public static void main(String[] args) {
-        int [] arr = new int[]{1,2,3,4,5};
-        System.out.println("Original Array:");
-        for (int i=0;i< arr.length;i++) {
-            System.out.print(arr[i] + " ");
+        int[] arr = {0,1,2,0,2,0,1};
+        System.out.println("Given Array :");
+        for (int i=0;i< arr.length;i++){
+            System.out.print(arr[i]+ " ");
         }
-        rotate(arr);
         System.out.println();
-        System.out.println("Array in Reverse Order:");
+        sort(arr);
+
+        System.out.println("Sorted Array : ");
         for (int i=0;i< arr.length;i++){
             System.out.print(arr[i]+" ");
         }
