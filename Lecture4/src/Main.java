@@ -1,25 +1,28 @@
 class Main {
-    public static int con(int[] arr){
+    public static void rotate(int[] arr){
         int n = arr.length;
-        int count = 0;
-        int max = 0;
-        for (int i=1;i<n;i++){
-            if (arr[i] == arr[i-1]){
-                count++;
-            } else {
-                max = Math.max(max , count);
-                count = 0;
-            }
+        int s = 0;
+        int e = n-1;
+        while (s < e){
+            int temp = arr[s];
+            arr[s] = arr[e];
+            arr[e] = temp;
+            s++;
+            e--;
         }
-        if (arr[n-1] == arr[n-2]) {
-            count++;
-        }
-        max = Math.max(max, count);
-        return max;
     }
     public static void main(String[] args) {
-        int[] arr = {1,1,6,3,5,5,5,2,2,2,2};
-        System.out.println(con(arr));
+        int [] arr = new int[]{1,2,3,4,5};
+        System.out.println("Original Array:");
+        for (int i=0;i< arr.length;i++) {
+            System.out.print(arr[i] + " ");
+        }
+        rotate(arr);
+        System.out.println();
+        System.out.println("Array in Reverse Order:");
+        for (int i=0;i< arr.length;i++){
+            System.out.print(arr[i]+" ");
+        }
     }
 }
 
