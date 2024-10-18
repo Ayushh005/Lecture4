@@ -3,12 +3,12 @@ class Main {
         int n = arr.length;
         int zero = 0;
         int two = n-1;
-        int i = 0;
-        while (i <= two){
-            if (arr[i] == 0) {
-                int temp = arr[zero];
-                arr[zero] = arr[i];
-                arr[i] = temp;
+        int i=0;
+        while(i <= two){
+            if(arr[i] == 0){
+                int temp = arr[i];
+                arr[i] = arr[zero];
+                arr[zero] = temp;
                 i++;
                 zero++;
             }
