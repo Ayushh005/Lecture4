@@ -39,28 +39,30 @@ public class LevelWiseInput {
         }
         return list;
     }
-    public static BinaryTreeNode<Integer> takeLevelWiseInput(){
+    public static BinaryTreeNode<Integer> takeLevelWiseInput() {
         Scanner s = new Scanner(System.in);
         Queue<BinaryTreeNode<Integer>> queue = new LinkedList<>();
+        System.out.println("Enter root node: ");
         int rootNode = s.nextInt();
-        if (rootNode == -1){
+        if (rootNode == -1) {
             return null;
         }
-        BinaryTreeNode<Integer> root = queue.offer(root);
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(rootNode);
+        queue.offer(root);
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             BinaryTreeNode<Integer> front;
             front = queue.poll();
-            System.out.println("Enter left child of "+ front.data);
+            System.out.println("Enter left child of " + front.data);
             int leftChild = s.nextInt();
-            if (leftChild != -1){
+            if (leftChild != -1) {
                 BinaryTreeNode<Integer> child = new BinaryTreeNode<>(leftChild);
                 queue.offer(child);
                 front.left = child;
             }
-            System.out.println("Enter right child of "+ front.data);
+            System.out.println("Enter right child of " + front.data);
             int rightChild = s.nextInt();
-            if (rightChild != -1){
+            if (rightChild != -1) {
                 BinaryTreeNode<Integer> child = new BinaryTreeNode<>(rightChild);
                 queue.offer(child);
                 front.right = child;
@@ -68,6 +70,7 @@ public class LevelWiseInput {
         }
         return root;
     }
+
     public static void main(String[] args) {
 
         takeLevelWiseInput();
