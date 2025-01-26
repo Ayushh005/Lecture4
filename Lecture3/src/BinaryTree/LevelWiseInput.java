@@ -6,6 +6,27 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class LevelWiseInput {
+    public static void printnodeWithoutSibling(BinaryTreeNode<Integer> root){
+        if (root == null) {
+            return;
+        }
+        if (root.left != null && root.right == null) {
+            System.out.print(root.left.data + " ");
+        } else if (root.left == null && root.right != null) {
+            System.out.print(root.right.data + " ");
+        }
+        printnodeWithoutSibling(root.left);
+        printnodeWithoutSibling(root.right);
+    }
+    public static boolean isPresent(BinaryTreeNode<Integer> root, int x){
+        if (root == null) {
+            return false;
+        }
+        if (root.data.equals(x)) {
+            return true;
+        }
+        return (isPresent(root.left,x) || isPresent(root.right,x));
+    }
     public static void preOrder(BinaryTreeNode<Integer> root){
         if (root == null){
             return;
