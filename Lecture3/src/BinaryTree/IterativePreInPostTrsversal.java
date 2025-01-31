@@ -45,29 +45,49 @@ public class IterativePreInPostTrsversal {
         List<Integer> list = new ArrayList<>();
         Stack<BinaryTreeNode<Integer>> st = new Stack<>();
         BinaryTreeNode<Integer> node = root;
+        BinaryTreeNode<Integer> lastVisited = null;
 
         while (!st.isEmpty() || node != null) {
-            // move to the left
-            while (node != null) {
+            if (node != null) {
                 st.push(node);
                 node = node.left;
-            }
-            // move to the right
-            if (st.peek().right != null){
-                node = st.peek().right;
             } else {
-                BinaryTreeNode<Integer> temp = st.pop();
-                list.add(temp.data);
-                while (!st.isEmpty() || temp == st.peek().right){
-                    temp = st.pop();
-                    list.add(temp.data);
+                BinaryTreeNode<Integer> peekNode = st.peek();
+                if (peekNode.right != null && lastVisited != peekNode.right) {
+                    node = peekNode.right;
+                } else {
+                    list.add(peekNode.data);
+                    lastVisited = st.pop();
                 }
             }
         }
-        return list;
+        return
     }
 
     public static void main(String[] args) {
 
     }
 }
+//    List<Integer> list = new ArrayList<>();
+//    Stack<BinaryTreeNode<Integer>> st = new Stack<>();
+//    BinaryTreeNode<Integer> node = root;
+//
+//        while (!st.isEmpty() || node != null) {
+//                // move to the left
+//                while (node != null) {
+//                st.push(node);
+//                node = node.left;
+//                }
+//                // move to the right
+//                if (st.peek().right != null){
+//                node = st.peek().right;
+//                } else {
+//                BinaryTreeNode<Integer> temp = st.pop();
+//        list.add(temp.data);
+//        while (!st.isEmpty() || temp == st.peek().right){
+//        temp = st.pop();
+//        list.add(temp.data);
+//        }
+//        }
+//        }
+//        return list;
