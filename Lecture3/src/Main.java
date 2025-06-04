@@ -3,7 +3,7 @@ import java.util.Queue;
 
 class Main{
 
-        public static int[] findNegative(int[] arr, int k){
+        public static int[] findNegative(int[] arr, int k){           // find -ve of every k sized subarray or return 0
             int n = arr.length;
             Queue<Integer> queue = new LinkedList<>();
 
